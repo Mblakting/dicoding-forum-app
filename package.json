@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run --passWithNoTests",
-    "e2e": "cypress open"
+    "cypress:run": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:5173 cypress:run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -54,6 +55,7 @@
     "playwright": "^1.61.1",
     "postcss": "^8.5.15",
     "prop-types": "^15.8.1",
+    "start-server-and-test": "^3.0.11",
     "storybook": "^10.4.6",
     "tailwindcss": "^4.3.1",
     "vite": "^8.1.0",

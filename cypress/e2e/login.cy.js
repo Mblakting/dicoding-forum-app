@@ -1,6 +1,6 @@
 describe('Login Flow', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173/login');
+    cy.visit('/login');
   });
 
   it('harus menampilkan halaman login dengan benar', () => {
@@ -10,11 +10,21 @@ describe('Login Flow', () => {
   });
 
   it('harus berhasil login dan dialihkan ke halaman utama', () => {
-    cy.get('input[placeholder="Email"]').type('testing-dicoding@gmail.com');
-    cy.get('input[placeholder="Password"]').type('testing123');
+    const timestamp = Date.now();
+    const email = `testing-dicoding-${timestamp}@example.com`;
+    const password = 'testing123';
+
+    cy.request('POST', 'https://forum-api.dicoding.dev/v1/register', {
+      name: `Testing Dicoding ${timestamp}`,
+      email,
+      password,
+    });
+
+    cy.get('input[placeholder="Email"]').type(email);
+    cy.get('input[placeholder="Password"]').type(password);
     cy.get('button').contains('Masuk').click();
 
-    cy.url().should('eq', 'http://localhost:5173/');
+    cy.location('pathname').should('eq', '/');
     cy.get('nav').should('be.visible');
   });
 });

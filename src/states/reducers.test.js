@@ -8,7 +8,7 @@ describe('Reducers Test', () => {
     const initialState = undefined;
     const action = { type: 'UNKNOWN' };
     const nextState = authUserReducer.reducer(initialState, action);
-    expect(nextState).toBe('INTENTIONAL_FAIL');
+    expect(nextState).toBeNull();
   });
 
   it('2. isPreload reducer mengembalikan true secara default', () => {

@@ -21,6 +21,6 @@ jobs:
       - name: Build
         run: npm run build
       - name: Run tests
-        run: npm test -- --run --passWithNoTests
+        run: npm test
         env:
           CI: true

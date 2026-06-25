@@ -39,5 +39,16 @@ export default [{
     'no-alert': 'off',
     'no-param-reassign': ['error', { props: false }],
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
+  },
+}, {
+  files: ['cypress/**/*.js'],
+  languageOptions: {
+    globals: {
+      ...globals.browser,
+      ...globals.mocha,
+      cy: 'readonly',
+      Cypress: 'readonly',
+    },
   },
 }, ...storybook.configs["flat/recommended"]];

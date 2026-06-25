@@ -210,5 +210,3 @@ export const asyncToggleVoteThread = (threadId, voteType) => async (dispatch, ge
     dispatch(asyncPopulateData());
   }
 };
-
-

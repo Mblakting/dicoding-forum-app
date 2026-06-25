@@ -6,6 +6,10 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: './setupTests.js',
-    globals: true
-  }
+    globals: true,
+    pool: 'vmForks',
+    alias: {
+      'react-redux-loading-bar': new URL('./src/__mocks__/react-redux-loading-bar.js', import.meta.url).pathname,
+    },
+  },
 })

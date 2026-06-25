@@ -1,5 +1,5 @@
-import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loadingBarReducer, showLoading, hideLoading } from 'react-redux-loading-bar';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { api, putAccessToken, getAccessToken } from '../utils/api';
 
 function withLoading(dispatch, task) {
@@ -211,14 +211,4 @@ export const asyncToggleVoteThread = (threadId, voteType) => async (dispatch, ge
   }
 };
 
-export const store = configureStore({
-  reducer: {
-    authUser: authUserReducer.reducer,
-    isPreload: isPreloadReducer.reducer,
-    users: usersReducer.reducer,
-    threads: threadsReducer.reducer,
-    threadDetail: threadDetailReducer.reducer,
-    leaderboards: leaderboardsReducer.reducer,
-    loadingBar: loadingBarReducer,
-  },
-});
+
